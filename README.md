@@ -7,7 +7,7 @@ A compact but complete reference on HTML layout hierarchy, parent-child relation
 ## 📂 Repository Structure
 
 ```
-Spinning-the-Webs/
+Spinning-the-Webs/01-pragmatic-steps-in-spinning
 ├── README.md                        ← You are here
 ├── 01_clear_cut_concepts/
 │   ├── 01-core-concept.md           ← DOM tree, nesting, basic rules
@@ -49,4 +49,5 @@ Spinning-the-Webs/
 1. Read notes in order (`01` → `06`) for full understanding
 2. Open each `.html` file in a browser to see live structure
 3. Use browser DevTools (F12) to inspect the DOM tree visually
-4. You are also encouraged to contribute in this repo
+4. If you are benefitted, give a star
+5. You are also encouraged to contribute in this repo

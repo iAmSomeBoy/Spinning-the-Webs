@@ -46,11 +46,12 @@
       <!-- div as logo wrapper — generic block container -->
       <!-- Parent: header | Children: span (inline) -->
       <div>
-        <span>MyBrand</span>
+      <h1>MyBrand</h1>
+      <!-- <span>MyBrand</span>   <!-- span is non-semantic tag: it makes noting without css or js. With css we color, resize, etc do-->
         <!-- span is inline — sits inside block div -->
       </div>
 
-      <!-- nav holds navigation links -->
+      <!-- nav holds navigation links: Home tab, About tab etc -->
       <!-- Parent: header | Children: ul only (best practice) -->
       <nav>
 
@@ -79,8 +80,11 @@
     <!-- MAIN — sibling of header and footer -->
     <main>
       <p>Page content goes here.</p>
+      <br>| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  |
+      <br>|
+      <br>|
+      <p>Page content goes here.</p>
     </main>
-
 
     <!-- PAGE-LEVEL FOOTER — sibling of header and main -->
     <!-- Parent: body | Children: div, nav, p, span, a -->
@@ -90,7 +94,7 @@
       <!-- Parent: footer | Children: inline only -->
       <p>
         <!-- span is inline — wraps part of text -->
-        <span>© 2026</span> MyBrand. All rights reserved.
+        <span>© 2026 </span> MyBrand. All rights reserved.
       </p>
 
       <!-- nav can also appear in footer -->
