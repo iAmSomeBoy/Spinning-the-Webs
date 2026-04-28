@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!--
+    =========================================================
+    05 — FULL HOMEPAGE HIERARCHY (All Tags Combined)
+
+    The complete homepage structure with every major tag
+    and all parent-child-sibling relationships annotated.
+
+    FULL TREE:
+    html
+     ├── head
+     │    ├── meta
+     │    ├── meta
+     │    └── title
+     └── body
+          ├── header                     ← SIBLING of main, aside, footer
+          │    ├── div (logo)
+          │    │    └── span
+          │    └── nav
+          │         └── ul
+          │              └── li → a
+          ├── main                       ← SIBLING of header, aside, footer
+          │    ├── section (Hero)
+          │    │    ├── h1
+          │    │    ├── p → span
+          │    │    └── a
+          │    ├── section (Features)
+          │    │    ├── h2
+          │    │    └── div
+          │    │         ├── article → h3, p
+          │    │         ├── article → h3, p
+          │    │         └── article → h3, p
+          │    ├── section (Testimonials)
+          │    │    ├── h2
+          │    │    └── article
+          │    │         ├── blockquote
+          │    │         └── cite
+          │    └── section (CTA)
+          │         ├── h2
+          │         ├── p
+          │         └── a
+          ├── aside                      ← SIBLING of main, header, footer
+          │    ├── h3
+          │    └── ul → li → a
+          └── footer                     ← SIBLING of main, header, aside
+               ├── div
+               │    ├── p → span
+               │    └── nav → a
+               └── p
+    =========================================================
+  -->
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05 — Full Homepage Hierarchy</title>
+  </head>
+
+  <body>
+
+    <!-- ================================================
+         HEADER — page region, direct child of body
+         Siblings: main, aside, footer
+         Children: div, nav, h1-h6, img, span, a
+         ================================================ -->
+    <header>
+
+      <!-- logo wrapper div -->
+      <div>
+        <span>MyBrand</span>
+      </div>
+
+      <!-- nav — page navigation -->
+      <!-- Parent: header | Children: ul, a, div -->
+      <nav>
+        <ul>
+          <!-- ul → li ONLY | li → inline elements -->
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+
+    </header>
+
+
+    <!-- ================================================
+         MAIN — primary content, direct child of body
+         Siblings: header, aside, footer
+         Children: section, article, div, aside, h1-h6, p, ul, img
+         ================================================ -->
+    <main>
+
+
+      <!-- SECTION: HERO -->
+      <!-- Parent: main | Sibling of other sections -->
+      <!-- Children: h1-h6, p, div, a, article, img, header, footer -->
+      <section>
+
+        <h1>Build Better Websites</h1>
+
+        <p>
+          The fastest way to create
+          <span>professional HTML pages</span>
+          from scratch.
+        </p>
+
+        <!-- a is inline but valid direct child of section -->
+        <a href="#">Start Building</a>
+
+      </section>
+
+
+      <!-- SECTION: FEATURES -->
+      <section>
+
+        <h2>Why Choose Us</h2>
+
+        <!-- div as flex layout wrapper for 3 articles -->
+        <!-- CSS hint: div { display: flex; gap: 24px; } -->
+        <div>
+
+          <!-- article — self-contained feature card -->
+          <!-- Parent: div | Children: h1-h6, p, div, header, footer, aside -->
+          <article>
+            <h3>Fast</h3>
+            <p>Blazing fast load times out of the box.</p>
+          </article>
+
+          <article>
+            <h3>Accessible</h3>
+            <p>Built with screen readers and keyboard nav in mind.</p>
+          </article>
+
+          <article>
+            <h3>Semantic</h3>
+            <p>Clean, meaningful HTML structure throughout.</p>
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- SECTION: TESTIMONIALS -->
+      <section>
+
+        <h2>What Our Users Say</h2>
+
+        <!-- article for each testimonial (self-contained) -->
+        <article>
+          <!-- blockquote — for quoted content -->
+          <!-- Parent: article | Children: p, span, cite -->
+          <blockquote>
+            <p>This tool completely changed how I build websites.</p>
+          </blockquote>
+          <!-- cite is inline — attribution for blockquote -->
+          <cite>— Alex, Front-End Developer</cite>
+        </article>
+
+        <article>
+          <blockquote>
+            <p>Finally, clean HTML without the guesswork.</p>
+          </blockquote>
+          <cite>— Maria, UX Designer</cite>
+        </article>
+
+      </section>
+
+
+      <!-- SECTION: CALL TO ACTION -->
+      <section>
+
+        <h2>Ready to Get Started?</h2>
+        <p>Join over 10,000 developers building smarter.</p>
+        <a href="#">Sign Up Free</a>
+
+      </section>
+
+
+    </main>
+    <!-- end main -->
+
+
+    <!-- ================================================
+         ASIDE — supplementary content, direct child of body
+         Siblings: header, main, footer
+         Children: div, p, h1-h6, ul, nav, img
+         ================================================ -->
+    <aside>
+
+      <h3>Quick Links</h3>
+
+      <ul>
+        <li><a href="#">HTML Reference</a></li>
+        <li><a href="#">CSS Guide</a></li>
+        <li><a href="#">JS Basics</a></li>
+      </ul>
+
+      <h3>Newsletter</h3>
+      <p>Subscribe for weekly tips.</p>
+
+    </aside>
+
+
+    <!-- ================================================
+         FOOTER — page region, direct child of body
+         Siblings: header, main, aside
+         Children: div, nav, p, span, a, ul
+         ================================================ -->
+    <footer>
+
+      <!-- div as layout wrapper inside footer -->
+      <div>
+
+        <p>
+          <!-- span wraps inline portion of text -->
+          <span>© 2026</span> MyBrand. All rights reserved.
+        </p>
+
+        <!-- nav can live in footer for secondary links -->
+        <nav>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Sitemap</a>
+        </nav>
+
+      </div>
+
+      <p>Made with HTML.</p>
+
+    </footer>
+
+
+  </body>
+
+</html>

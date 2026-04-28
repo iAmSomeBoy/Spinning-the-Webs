@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!--
+    =========================================================
+    03 — MAIN → SECTIONS HIERARCHY
+
+    The most common homepage pattern:
+    main → section → div → content
+
+    FULL HIERARCHY:
+    body
+     └── main
+          ├── section (Hero)
+          │    ├── h1
+          │    ├── p → span (inline)
+          │    └── a
+          ├── section (Features)
+          │    ├── h2
+          │    └── div  (layout wrapper)
+          │         ├── p
+          │         ├── p
+          │         └── p
+          ├── section (Testimonials)
+          │    ├── h2
+          │    └── p → strong (inline)
+          └── section (CTA)
+               ├── h2
+               ├── p
+               └── a
+
+    KEY FACTS:
+    - main is a direct child of body
+    - section is a direct child of main (most common pattern)
+    - sections stack VERTICALLY by default (block elements)
+    - div inside section is for layout grouping only
+    - inline elements (span, strong, a) live inside block elements
+    =========================================================
+  -->
+
+  <head>
+    <meta charset="UTF-8">
+    <title>03 — Main & Sections Hierarchy</title>
+  </head>
+
+  <body>
+
+    <!-- MAIN — primary content area, direct child of body -->
+    <!-- Parent: body | Siblings: header, footer, aside, nav -->
+    <!-- Children: section, article, div, aside, h1-h6, p, ul, img -->
+    <main>
+
+
+      <!-- SECTION 1: Hero -->
+      <!-- Parent: main | Children: h1-h6, p, div, article, img, a, header, footer -->
+      <section>
+
+        <!-- h1 is a block element — direct child of section -->
+        <h1>Welcome to My Site</h1>
+
+        <!-- p is a block element — direct child of section -->
+        <!-- p can only hold inline children -->
+        <p>
+          We help you build
+          <!-- span is inline — lives inside p -->
+          <span>amazing websites</span>
+          faster than ever.
+        </p>
+
+        <!-- a is inline but commonly placed directly in section -->
+        <!-- Best practice: wrap in a div or p for block context -->
+        <a href="#">Get Started</a>
+
+      </section>
+      <!-- end Hero section -->
+
+
+      <!-- SECTION 2: Features -->
+      <!-- Parent: main | Sibling of Hero section -->
+      <section>
+
+        <h2>Our Features</h2>
+
+        <!-- div as a layout wrapper — generic block container -->
+        <!-- Parent: section | Children: any block or inline -->
+        <div>
+          <!-- p elements stack vertically as block elements -->
+          <p>Feature one: Fast performance.</p>
+          <p>Feature two: Easy to use.</p>
+          <p>Feature three: Fully responsive.</p>
+          <!--
+            CSS hint: to make these 3 items appear side by side:
+            div { display: flex; gap: 16px; }
+          -->
+        </div>
+
+      </section>
+      <!-- end Features section -->
+
+
+      <!-- SECTION 3: Testimonials -->
+      <!-- Parent: main | Sibling of previous sections -->
+      <section>
+
+        <h2>What People Say</h2>
+
+        <p>
+          <!-- strong is inline — lives inside p -->
+          <strong>John D.</strong> says: This product is incredible.
+        </p>
+
+        <p>
+          <strong>Sarah K.</strong> says: Changed the way I work completely.
+        </p>
+
+      </section>
+      <!-- end Testimonials section -->
+
+
+      <!-- SECTION 4: CTA (Call to Action) -->
+      <!-- Parent: main | Last sibling section -->
+      <section>
+
+        <h2>Ready to Begin?</h2>
+        <p>Join thousands of users today.</p>
+        <a href="#">Sign Up Free</a>
+
+      </section>
+      <!-- end CTA section -->
+
+
+    </main>
+    <!-- end main -->
+
+  </body>
+
+</html>

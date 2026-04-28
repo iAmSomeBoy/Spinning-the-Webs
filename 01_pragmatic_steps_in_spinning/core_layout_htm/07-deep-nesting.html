@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!--
+    =========================================================
+    07 — DEEP NESTING (Parent → Child → Grandchild Chains)
+
+    Shows the deepest valid nesting chains in HTML.
+    Every level is annotated with its role.
+
+    CHAIN A (deepest page layout chain):
+    html → body → main → section → div → article → p → span → text
+
+    CHAIN B (list chain):
+    body → main → section → ul → li → a → span
+
+    CHAIN C (header chain re-use):
+    body → main → section → header → nav → ul → li → a
+
+    CHAIN D (article with aside):
+    body → main → section → article → div → [p + aside] → p → span
+    =========================================================
+  -->
+
+  <head>
+    <meta charset="UTF-8">
+    <title>07 — Deep Nesting Chains</title>
+  </head>
+
+  <body>
+    <!-- LEVEL 1: body — top visible container -->
+
+    <main>
+      <!-- LEVEL 2: main — primary page content area -->
+
+      <section>
+        <!-- LEVEL 3: section — themed content zone -->
+
+        <header>
+          <!-- LEVEL 4: header — section-level header -->
+          <!-- header re-used inside section (not just page-level) -->
+
+          <nav>
+            <!-- LEVEL 5: nav — navigation inside section header -->
+
+            <ul>
+              <!-- LEVEL 6: ul — list, only li children allowed -->
+
+              <li>
+                <!-- LEVEL 7: li — list item -->
+
+                <a href="#">
+                  <!-- LEVEL 8: a — inline link inside li -->
+
+                  <span>Deep Link Text</span>
+                  <!-- LEVEL 9: span — inline wrapper inside a -->
+                  <!-- This is one of the deepest valid chains -->
+
+                </a>
+              </li>
+
+            </ul>
+          </nav>
+        </header>
+        <!-- end section header -->
+
+
+        <!-- CHAIN A: section → div → article → p → span -->
+        <div>
+          <!-- LEVEL 4: div — generic layout wrapper inside section -->
+
+          <article>
+            <!-- LEVEL 5: article — self-contained content -->
+
+            <header>
+              <!-- LEVEL 6: article-level header -->
+              <h3>Article Title</h3>
+              <!-- h3 is a block — child of article header -->
+            </header>
+
+            <p>
+              <!-- LEVEL 6: p — paragraph, block element -->
+              <!-- p can ONLY hold inline children -->
+
+              This is a paragraph with
+              <span>
+                <!-- LEVEL 7: span — inline wrapper -->
+
+                <strong>bold</strong>
+                <!-- LEVEL 8: strong — inline inside span -->
+
+              </span>
+              and <em>italic</em> text.
+              <!-- em is inline — sibling of span inside p -->
+
+            </p>
+
+            <p>
+              Another paragraph with
+              <a href="#">
+                <!-- a is inline — child of p -->
+                a <span>nested link</span>
+                <!-- span inside a inside p — all inline -->
+              </a>.
+            </p>
+
+            <!-- CHAIN D: article → div → [p + aside] -->
+            <div>
+              <!-- div groups p and aside as siblings -->
+              <!-- CSS hint: display: flex to put them side by side -->
+
+              <p>
+                Main article content goes here. This is the primary
+                body text of this particular article.
+              </p>
+
+              <aside>
+                <!-- aside inside article — supplementary info -->
+                <!-- aside is a block element -->
+                <!-- Parent: div | Children: p, h1-h6, ul, nav -->
+
+                <p>
+                  <strong>Side note:</strong>
+                  <span>Extra context here.</span>
+                </p>
+
+              </aside>
+
+            </div>
+            <!-- end div grouping p+aside -->
+
+            <footer>
+              <!-- LEVEL 6: article-level footer -->
+              <!-- footer re-used inside article -->
+              <p>
+                <small>Posted on <span>April 28, 2026</span></small>
+                <!-- small is inline | span is inline inside small -->
+              </p>
+            </footer>
+
+          </article>
+          <!-- end article -->
+
+        </div>
+        <!-- end div -->
+
+
+        <!-- CHAIN B: section → ul → li → a → span -->
+        <ul>
+          <!-- ul is a direct child of section — valid -->
+          <!-- ul ONLY accepts li as direct children -->
+
+          <li>
+            <a href="#">
+              <span>List item one link</span>
+            </a>
+          </li>
+
+          <li>
+            <!-- li can contain nested ul -->
+            <a href="#">Parent item</a>
+
+            <ul>
+              <!-- nested ul inside li — valid -->
+              <li><a href="#">Sub item one</a></li>
+              <li><a href="#">Sub item two</a></li>
+            </ul>
+
+          </li>
+
+        </ul>
+
+
+        <footer>
+          <!-- LEVEL 4: section-level footer -->
+          <p>End of this section.</p>
+        </footer>
+
+      </section>
+      <!-- end section -->
+
+    </main>
+    <!-- end main -->
+
+  </body>
+
+</html>

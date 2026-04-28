@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!--
+    =========================================================
+    06 — BLOCK VS INLINE BEHAVIOUR DEMO
+
+    Shows the natural stacking direction of block vs inline
+    elements with NO CSS applied (raw HTML defaults only).
+
+    BLOCK elements → stack vertically ↕ (full width)
+    INLINE elements → flow horizontally ↔ (content width)
+    INLINE-BLOCK → flow horizontally but respect size
+
+    HIERARCHY shown:
+    body
+     ├── h2              ← block
+     ├── div             ← block (stacks below h2)
+     ├── div             ← block (stacks below first div)
+     ├── div             ← block (stacks below second div)
+     ├── h2              ← block
+     ├── p               ← block
+     │    ├── span       ← inline (flows inline with text)
+     │    ├── a          ← inline
+     │    └── strong     ← inline
+     ├── h2              ← block
+     ├── p               ← block
+     │    ├── span       ← inline
+     │    └── em         ← inline
+     └── h2
+          └── [inline-block demo]
+    =========================================================
+  -->
+
+  <head>
+    <meta charset="UTF-8">
+    <title>06 — Block vs Inline Demo</title>
+  </head>
+
+  <body>
+
+    <!-- ========================
+         BLOCK ELEMENTS
+         Each takes its own full row
+         Stacks VERTICALLY by default
+         ======================== -->
+
+    <h2>Block Elements — Stack Vertically</h2>
+
+    <!-- Each div is a block — they stack top to bottom -->
+    <div>I am div ONE — full width, own row</div>
+    <div>I am div TWO — full width, own row below div one</div>
+    <div>I am div THREE — full width, own row below div two</div>
+
+    <!-- p is a block — stacks below divs -->
+    <p>I am a paragraph — also a block element, own full row.</p>
+
+    <!-- h1-h6 are all block elements -->
+    <h1>h1 — block, full width</h1>
+    <h2>h2 — block, full width</h2>
+    <h3>h3 — block, full width</h3>
+
+
+    <!-- ========================
+         INLINE ELEMENTS
+         Sit side by side in a line
+         Flow HORIZONTALLY by default
+         ======================== -->
+
+    <h2>Inline Elements — Flow Horizontally</h2>
+
+    <!-- p is a block container, but its children are inline -->
+    <!-- span, a, strong, em all flow side by side inside p -->
+    <p>
+      This is text with
+      <!-- span is inline — no line break before or after -->
+      <span>a span</span>,
+      <!-- a is inline — sits next to span -->
+      <a href="#">a link</a>,
+      <!-- strong is inline — sits next to a -->
+      <strong>bold text</strong>,
+      and
+      <!-- em is inline — sits next to strong -->
+      <em>italic text</em>
+      all on the same line.
+    </p>
+
+    <!--
+      IMPORTANT RULE:
+      You cannot put a block element inside an inline element.
+
+      WRONG (never do this):
+      <span><div>content</div></span>   ← block inside inline = broken
+      <a><p>text</p></a>                ← block inside inline = broken
+
+      CORRECT:
+      <div><span>content</span></div>   ← inline inside block = fine
+      <p><a href="#">text</a></p>       ← inline inside block = fine
+    -->
+
+
+    <!-- ========================
+         INLINE-BLOCK ELEMENTS
+         Sit side by side (like inline)
+         But respect width and height (like block)
+         Examples: img, button, input
+         ======================== -->
+
+    <h2>Inline-Block Elements — Side by Side, Respect Size</h2>
+
+    <p>
+      An image sits inline with text:
+      <!-- img is inline-block — flows with text but has size -->
+      <img src="" alt="placeholder image" width="50" height="50">
+      and text continues right after it on the same line.
+    </p>
+
+    <!--
+      BLOCK TAGS FULL LIST:
+      div, p, h1-h6, section, article, aside
+      header, footer, main, nav
+      ul, ol, li, form, table, figure, blockquote
+
+      INLINE TAGS FULL LIST:
+      span, a, strong, em, label, code
+      small, sub, sup, cite, abbr
+
+      INLINE-BLOCK TAGS:
+      img, button, input, select, textarea
+    -->
+
+  </body>
+
+</html>

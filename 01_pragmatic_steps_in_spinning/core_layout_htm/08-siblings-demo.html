@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!--
+    =========================================================
+    08 — SIBLINGS DEMO (Body-Level Sibling Relationships)
+
+    Demonstrates all valid sibling relationships at body level
+    and inside containers.
+
+    BODY-LEVEL SIBLINGS (direct children of body):
+    body
+     ├── header    ← sibling 1
+     ├── nav       ← sibling 2 (nav can be direct child of body)
+     ├── main      ← sibling 3
+     ├── aside     ← sibling 4
+     └── footer    ← sibling 5
+
+    INSIDE MAIN — siblings:
+    main
+     ├── section   ← sibling 1
+     ├── section   ← sibling 2
+     └── section   ← sibling 3
+     (sections stack VERTICALLY by default — they are block elements)
+
+    INSIDE SECTION — siblings:
+    section
+     ├── header
+     ├── article   ← sibling
+     ├── article   ← sibling
+     └── footer
+
+    INSIDE ARTICLE — siblings:
+    article
+     ├── header
+     ├── div
+     │    ├── p    ← sibling
+     │    └── aside ← sibling (side by side with CSS flex)
+     └── footer
+
+    INSIDE P — inline siblings:
+    p
+     ├── span     ← inline sibling
+     ├── a        ← inline sibling
+     ├── strong   ← inline sibling
+     └── em       ← inline sibling
+    =========================================================
+  -->
+
+  <head>
+    <meta charset="UTF-8">
+    <title>08 — Siblings Demo</title>
+  </head>
+
+  <body>
+
+    <!-- ===================================================
+         BODY-LEVEL SIBLINGS
+         All direct children of body are siblings of each other
+         =================================================== -->
+
+    <!-- SIBLING 1 of body's children -->
+    <header>
+      <div><span>MyBrand</span></div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- SIBLING 2 of body's children -->
+    <!-- nav can be a direct child of body (page-level nav) -->
+    <nav>
+      <a href="#">Secondary Nav Link 1</a>
+      <a href="#">Secondary Nav Link 2</a>
+    </nav>
+
+    <!-- SIBLING 3 of body's children -->
+    <main>
+
+      <!-- ===================================================
+           MAIN-LEVEL SIBLINGS
+           Sections are siblings of each other inside main
+           They stack VERTICALLY by default (block elements)
+           CSS flex on main would make them horizontal
+           =================================================== -->
+
+      <!-- SIBLING 1 of main's children -->
+      <section>
+        <header><h2>Section One</h2></header>
+
+        <!-- ===================================================
+             SECTION-LEVEL SIBLINGS
+             Articles are siblings inside section
+             =================================================== -->
+
+        <!-- SIBLING 1 inside section -->
+        <article>
+          <header><h3>Article One</h3></header>
+
+          <!-- ===================================================
+               ARTICLE-LEVEL SIBLINGS
+               div groups p and aside as siblings
+               =================================================== -->
+          <div>
+            <!-- p and aside are siblings inside div -->
+            <!-- CSS hint: div { display: flex; } makes them horizontal -->
+
+            <!-- SIBLING 1 inside div -->
+            <p>
+              <!-- inline siblings inside p -->
+              Text with <span>span</span>,
+              <a href="#">a link</a>,
+              <strong>bold</strong>, and
+              <em>italic</em>.
+              <!-- span, a, strong, em are all inline siblings -->
+            </p>
+
+            <!-- SIBLING 2 inside div -->
+            <aside>
+              <p>Aside content — supplementary to article.</p>
+            </aside>
+
+          </div>
+
+          <footer><p>Article one footer.</p></footer>
+        </article>
+
+        <!-- SIBLING 2 inside section -->
+        <article>
+          <header><h3>Article Two</h3></header>
+          <p>Second article content. Sibling of article one.</p>
+          <footer><p>Article two footer.</p></footer>
+        </article>
+
+        <!-- SIBLING 3 inside section -->
+        <article>
+          <header><h3>Article Three</h3></header>
+          <p>Third article. All three articles are siblings.</p>
+          <footer><p>Article three footer.</p></footer>
+        </article>
+
+        <footer><h2>Section One Footer</h2></footer>
+      </section>
+      <!-- end section one -->
+
+      <!-- SIBLING 2 of main's children -->
+      <section>
+        <header><h2>Section Two</h2></header>
+        <p>Section two content. Sibling of section one.</p>
+        <footer><p>Section two footer.</p></footer>
+      </section>
+
+      <!-- SIBLING 3 of main's children -->
+      <section>
+        <header><h2>Section Three</h2></header>
+        <p>Section three content. Sibling of sections one and two.</p>
+        <footer><p>Section three footer.</p></footer>
+      </section>
+
+    </main>
+    <!-- end main -->
+
+    <!-- SIBLING 4 of body's children -->
+    <!-- aside is a sibling of main, header, nav, footer -->
+    <!--
+      aside valid parents: body, main, section, article, div
+      aside invalid parents: header, footer, nav, p, span
+    -->
+    <aside>
+      <h3>Page Sidebar</h3>
+      <p>Supplementary content. Sibling of main at body level.</p>
+      <ul>
+        <li><a href="#">Related Link 1</a></li>
+        <li><a href="#">Related Link 2</a></li>
+      </ul>
+    </aside>
+
+    <!-- SIBLING 5 of body's children -->
+    <footer>
+      <p><span>© 2026</span> MyBrand</p>
+      <nav>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </nav>
+    </footer>
+
+    <!--
+      SUMMARY OF SIBLING RULES:
+      ┌─────────────────────────────────────────────────┐
+      │ body children (siblings):                        │
+      │   header, nav, main, aside, footer               │
+      │                                                  │
+      │ main children (siblings):                        │
+      │   section, article, div, aside                   │
+      │                                                  │
+      │ section children (siblings):                     │
+      │   header, article, div, p, footer                │
+      │                                                  │
+      │ article children (siblings):                     │
+      │   header, div, p, aside, footer                  │
+      │                                                  │
+      │ div children (siblings):                         │
+      │   anything block or inline                       │
+      │                                                  │
+      │ p children (inline siblings only):               │
+      │   span, a, strong, em, label, code               │
+      └─────────────────────────────────────────────────┘
+    -->
+
+  </body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!--
+    =========================================================
+    04 — SECTION, ARTICLE & ASIDE RELATIONS
+
+    Demonstrates every valid parent-child combination
+    among section, article, and aside.
+
+    FULL HIERARCHY:
+    body
+     └── main
+          ├── section
+          │    ├── header          ← section-level header
+          │    ├── article
+          │    │    ├── header     ← article-level header
+          │    │    ├── h3
+          │    │    ├── p → span
+          │    │    ├── p → em
+          │    │    └── footer     ← article-level footer
+          │    ├── article
+          │    │    ├── header
+          │    │    ├── div
+          │    │    │    ├── p     ← main content
+          │    │    │    └── aside ← sidebar inside article
+          │    │    │         └── p
+          │    │    └── footer
+          │    └── footer          ← section-level footer
+          └── aside                ← page-level sidebar (sibling of section)
+               ├── h3
+               └── ul → li → a
+
+    KEY RELATIONSHIPS SHOWN:
+    - header and footer can repeat inside section and article
+    - aside can be child of: body, main, section, article, div
+    - article can be child of section
+    - section can be child of main
+    - div inside article groups p and aside side by side (with CSS flex)
+    =========================================================
+  -->
+
+  <head>
+    <meta charset="UTF-8">
+    <title>04 — Section, Article & Aside Relations</title>
+  </head>
+
+  <body>
+
+    <main>
+
+      <!-- SECTION — themed content zone -->
+      <!-- Parent: main | Siblings: other sections, aside -->
+      <!-- Children: header, article, div, h1-h6, p, footer -->
+      <section>
+
+        <!-- SECTION-LEVEL HEADER — header re-used inside section -->
+        <!-- Parent: section | Children: h1-h6, nav, div, img, span -->
+        <header>
+          <h2>Latest Blog Posts</h2>
+        </header>
+
+
+        <!-- ARTICLE 1 — self-contained post -->
+        <!-- Parent: section | Children: header, h1-h6, p, div, footer, aside -->
+        <article>
+
+          <!-- ARTICLE-LEVEL HEADER — header re-used inside article -->
+          <header>
+            <h3>How to Learn HTML</h3>
+          </header>
+
+          <!-- p is a block element — direct child of article -->
+          <!-- p children: inline only — span, a, strong, em -->
+          <p>
+            HTML stands for
+            <!-- span is inline — wraps part of text only -->
+            <span>HyperText Markup Language</span>.
+          </p>
+
+          <p>
+            It uses
+            <!-- em is inline — emphasis -->
+            <em>tags</em>
+            to define structure and meaning.
+          </p>
+
+          <!-- ARTICLE-LEVEL FOOTER -->
+          <!-- Parent: article | Children: p, span, a, div -->
+          <footer>
+            <p>Published: April 28, 2026</p>
+          </footer>
+
+        </article>
+        <!-- end Article 1 -->
+
+
+        <!-- ARTICLE 2 — demonstrates aside inside article -->
+        <!-- Parent: section | Sibling of Article 1 -->
+        <article>
+
+          <header>
+            <h3>Understanding CSS Flexbox</h3>
+          </header>
+
+          <!-- div groups p and aside side by side -->
+          <!-- Parent: article | Children: p, aside, div -->
+          <div>
+            <!--
+              p and aside are siblings inside div
+              CSS hint to make them side by side:
+              div { display: flex; gap: 16px; }
+            -->
+
+            <!-- p is a block — main article content -->
+            <p>
+              Flexbox is a CSS layout system that
+              arranges elements in rows or columns.
+            </p>
+
+            <!-- ASIDE inside ARTICLE — supplementary info -->
+            <!-- aside is a block element — valid inside article -->
+            <!-- Parent: div | Children: div, p, h1-h6, ul, nav, img -->
+            <aside>
+              <p>Tip: Flexbox works on direct children only.</p>
+            </aside>
+
+          </div>
+
+          <footer>
+            <p>Published: April 25, 2026</p>
+          </footer>
+
+        </article>
+        <!-- end Article 2 -->
+
+
+        <!-- SECTION-LEVEL FOOTER -->
+        <footer>
+          <p>End of blog posts section.</p>
+        </footer>
+
+      </section>
+      <!-- end section -->
+
+
+      <!-- PAGE-LEVEL ASIDE — sibling of section, child of main -->
+      <!--
+        aside valid parents: body, main, section, article, div
+        aside invalid parents: header, footer, nav, p, span
+      -->
+      <!-- Parent: main | Sibling: section above -->
+      <!-- Children: div, p, h1-h6, ul, nav, img -->
+      <aside>
+
+        <h3>Related Links</h3>
+
+        <!-- ul can ONLY contain li as direct children -->
+        <ul>
+          <li><a href="#">HTML Tutorial</a></li>
+          <li><a href="#">CSS Guide</a></li>
+          <li><a href="#">JavaScript Basics</a></li>
+        </ul>
+
+      </aside>
+      <!-- end aside -->
+
+
+    </main>
+
+  </body>
+
+</html>

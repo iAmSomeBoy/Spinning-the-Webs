@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!--
+    =========================================================
+    02 — HEADER, NAV & FOOTER RELATIONS
+
+    HIERARCHY:
+    body
+     ├── header
+     │    ├── div        (logo wrapper)
+     │    │    └── span  (inline text)
+     │    └── nav
+     │         └── ul
+     │              ├── li → a
+     │              ├── li → a
+     │              └── li → a
+     ├── main
+     │    └── p
+     └── footer
+          ├── p → span
+          └── nav
+               ├── a
+               └── a
+
+    KEY RELATIONSHIPS:
+    - header is a sibling of main and footer (all direct children of body)
+    - nav can live inside header OR directly in body OR in footer
+    - ul can ONLY have li as direct children
+    - li can contain inline elements like <a>
+    - footer is a sibling of header and main
+    =========================================================
+  -->
+
+  <head>
+    <meta charset="UTF-8">
+    <title>02 — Header, Nav & Footer</title>
+  </head>
+
+  <body>
+
+    <!-- PAGE-LEVEL HEADER -->
+    <!-- Parent: body | Children: div, nav -->
+    <header>
+
+      <!-- div as logo wrapper — generic block container -->
+      <!-- Parent: header | Children: span (inline) -->
+      <div>
+        <span>MyBrand</span>
+        <!-- span is inline — sits inside block div -->
+      </div>
+
+      <!-- nav holds navigation links -->
+      <!-- Parent: header | Children: ul only (best practice) -->
+      <nav>
+
+        <!-- ul can ONLY have li as direct children -->
+        <!-- Parent: nav | Children: li ONLY -->
+        <ul>
+
+          <!-- li holds the actual link -->
+          <!-- Parent: ul | Children: inline elements like <a> -->
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <!--
+            <a> is inline — it lives inside <li>
+            <a> can contain: text, <span>, <img>
+            <a> cannot contain: <div>, <p>, <section>
+          -->
+
+        </ul>
+      </nav>
+
+    </header>
+    <!-- end header -->
+
+
+    <!-- MAIN — sibling of header and footer -->
+    <main>
+      <p>Page content goes here.</p>
+    </main>
+
+
+    <!-- PAGE-LEVEL FOOTER — sibling of header and main -->
+    <!-- Parent: body | Children: div, nav, p, span, a -->
+    <footer>
+
+      <!-- p is a block element inside footer -->
+      <!-- Parent: footer | Children: inline only -->
+      <p>
+        <!-- span is inline — wraps part of text -->
+        <span>© 2026</span> MyBrand. All rights reserved.
+      </p>
+
+      <!-- nav can also appear in footer -->
+      <!-- Parent: footer | Children: a, ul, div -->
+      <nav>
+        <!-- a is inline — valid direct child of nav -->
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </nav>
+
+    </footer>
+    <!-- end footer -->
+
+  </body>
+
+</html>
