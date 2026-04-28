@@ -7,16 +7,16 @@ A compact but complete reference on HTML layout hierarchy, parent-child relation
 ## 📂 Repository Structure
 
 ```
-html-notes-repo/
+Spinning-the-Webs/
 ├── README.md                        ← You are here
-├── notes/
+├── 01_clear_cut_concepts/
 │   ├── 01-core-concept.md           ← DOM tree, nesting, basic rules
 │   ├── 02-block-vs-inline.md        ← Block, inline, inline-block explained
 │   ├── 03-div-section-article.md    ← When to use which container
 │   ├── 04-parent-child-table.md     ← Who can be whose child/parent/sibling
 │   ├── 05-homepage-hierarchy.md     ← Homepage layout structure
 │   └── 06-flexbox-hint.md           ← CSS flexbox (complementary hint only)
-└── layouts/
+└── 02_core_layouts/
     ├── 01-basic-body-skeleton.html       ← Minimal valid HTML page
     ├── 02-header-nav-footer.html         ← Header, nav, footer relations
     ├── 03-main-sections.html             ← Main → sections hierarchy
@@ -49,3 +49,4 @@ html-notes-repo/
 1. Read notes in order (`01` → `06`) for full understanding
 2. Open each `.html` file in a browser to see live structure
 3. Use browser DevTools (F12) to inspect the DOM tree visually
+4. You are also encouraged to contribute in this repo
