@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  =========================================================
+  07 — ALL COMBINED
+  A full page using every tag from this repo.
+
+  FULL TREE:
+  html
+   └── body
+        ├── header → nav → ul → li → a
+        ├── main
+        │    ├── section (hero) → h1, p → mark/abbr, a
+        │    ├── section (features) → h2, div → article → h3,p,time
+        │    ├── section (table) → h2, table → caption,thead,tbody,tfoot
+        │    ├── section (media) → figure → video/source + figcaption
+        │    ├── section (form) → form → fieldset → legend,label,input,select,textarea,button
+        │    ├── section (semantic) → blockquote→p,cite | details→summary,p | address
+        │    └── section (spacing) → &nbsp; br hr margin padding
+        ├── aside → h3, ul → li → a
+        └── footer → address, p → small, nav → a
+  =========================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>07 — All Tags Combined</title>
+</head>
+<body>
+
+  <!-- PAGE HEADER -->
+  <header>
+    <div><span>MyBrand</span></div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#form-section">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+
+    <!-- HERO SECTION — semantic inline tags -->
+    <section>
+      <h1>Learn <mark>HTML</mark> the Right Way</h1>
+      <p>
+        Master <abbr title="HyperText Markup Language">HTML</abbr>
+        structure and build pages with
+        <strong>semantic</strong> and <em>meaningful</em> code.
+        <br>
+        Published: <time datetime="2026-04-28">April 28, 2026</time>
+      </p>
+      <a href="#form-section">Get Started Free</a>
+    </section>
+
+    <hr>
+
+
+    <!-- FEATURES — article + time + figure + figcaption -->
+    <section>
+      <h2>What You Will Learn</h2>
+      <div>
+
+        <article>
+          <h3>HTML Structure</h3>
+          <figure>
+            <img src="https://via.placeholder.com/300x150" alt="HTML structure diagram" width="300" height="150">
+            <figcaption>Figure 1: The HTML document tree</figcaption>
+          </figure>
+          <p>Understand the <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code> hierarchy.</p>
+          <footer>
+            <small>Updated <time datetime="2026-04-01">April 1, 2026</time></small>
+          </footer>
+        </article>
+
+        <article>
+          <h3>Semantic Tags</h3>
+          <p>Use <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, and <code>&lt;aside&gt;</code> correctly.</p>
+          <details>
+            <summary>Why semantics matter</summary>
+            <p>Semantic tags help <abbr title="Search Engine Optimization">SEO</abbr> and screen readers understand your page.</p>
+          </details>
+          <footer>
+            <small>Updated <time datetime="2026-03-15">March 15, 2026</time></small>
+          </footer>
+        </article>
+
+        <article>
+          <h3>Forms &amp; Tables</h3>
+          <p>Build accessible forms and structured data tables.</p>
+          <p>Water is H<sub>2</sub>O. Area is m<sup>2</sup>.</p>
+          <footer>
+            <small>Updated <time datetime="2026-02-20">February 20, 2026</time></small>
+          </footer>
+        </article>
+
+      </div>
+    </section>
+
+    <hr>
+
+
+    <!-- TABLE SECTION -->
+    <section>
+      <h2>Course Overview Table</h2>
+      <table>
+        <caption>HTML Topics — Difficulty &amp; Duration</caption>
+        <thead>
+          <tr>
+            <th>Topic</th>
+            <th>Difficulty</th>
+            <th>Duration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Document Structure</td>
+            <td><mark>Easy</mark></td>
+            <td>1 hour</td>
+          </tr>
+          <tr>
+            <td>Semantic Layout</td>
+            <td>Medium</td>
+            <td>2 hours</td>
+          </tr>
+          <tr>
+            <td>Forms &amp; Tables</td>
+            <td>Medium</td>
+            <td>3 hours</td>
+          </tr>
+          <tr>
+            <td>Media Embedding</td>
+            <td>Easy</td>
+            <td>1 hour</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2">Total Learning Time</td>
+            <td><strong>7 hours</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <hr>
+
+
+    <!-- MEDIA SECTION -->
+    <section>
+      <h2>Course Introduction Video</h2>
+
+      <figure>
+        <video width="560" height="315" controls poster="thumbnail.jpg">
+          <source src="intro.mp4" type="video/mp4">
+          <source src="intro.webm" type="video/webm">
+          Your browser does not support video.
+          <a href="intro.mp4">Download video</a>
+        </video>
+        <figcaption>Video 1: Course introduction and overview — 5 minutes</figcaption>
+      </figure>
+
+      <figure>
+        <audio controls>
+          <source src="podcast.mp3" type="audio/mpeg">
+          Your browser does not support audio.
+        </audio>
+        <figcaption>Podcast version of the introduction</figcaption>
+      </figure>
+
+    </section>
+
+    <hr>
+
+
+    <!-- QUOTES & SEMANTIC TEXT -->
+    <section>
+      <h2>What Experts Say</h2>
+
+      <blockquote cite="https://www.w3.org">
+        <p>The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect.</p>
+        <cite>— Tim Berners-Lee, <abbr title="World Wide Web Consortium">W3C</abbr></cite>
+      </blockquote>
+
+      <p>As the saying goes, <q>structure before style</q> — always write good HTML before adding CSS.</p>
+
+    </section>
+
+    <hr>
+
+
+    <!-- FORM SECTION -->
+    <section id="form-section">
+      <h2>Contact Us</h2>
+
+      <form action="/contact" method="POST">
+
+        <fieldset>
+          <legend>Your Details</legend>
+
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic">
+            <optgroup label="Learning">
+              <option value="html">HTML Questions</option>
+              <option value="css">CSS Questions</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option value="general">General Inquiry</option>
+            </optgroup>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Your message here..."></textarea>
+
+          <label>
+            <input type="checkbox" name="subscribe" value="yes">
+            Subscribe to newsletter
+          </label>
+
+        </fieldset>
+
+        <button type="submit">Send Message</button>
+        <button type="reset">Clear</button>
+
+      </form>
+    </section>
+
+
+    <!-- SPACING DEMO SECTION -->
+    <section>
+      <h2>Spacing Examples</h2>
+
+      <p>Horizontal nbsp: Left &nbsp;&nbsp;&nbsp; Right</p>
+
+      <p>Line one<br>Line two after br<br>Line three after another br</p>
+
+      <p style="margin-top: 30px;">I have 30px margin-top pushing me down.</p>
+
+      <div style="padding: 20px; background: #f0f0f0;">
+        This div has 20px padding on all sides — content breathes inside.
+      </div>
+
+    </section>
+
+
+  </main>
+  <!-- end main -->
+
+
+  <!-- PAGE ASIDE -->
+  <aside>
+    <h3>Quick Navigation</h3>
+    <ul>
+      <li><a href="#">HTML Structure</a></li>
+      <li><a href="#">Semantic Tags</a></li>
+      <li><a href="#">Forms</a></li>
+      <li><a href="#">Tables</a></li>
+      <li><a href="#">Media</a></li>
+    </ul>
+  </aside>
+
+
+  <!-- PAGE FOOTER -->
+  <footer>
+
+    <address>
+      <p>MyBrand Inc. &nbsp;|&nbsp; 123 Web Street, New York</p>
+      <a href="mailto:hello@mybrand.com">hello@mybrand.com</a>
+    </address>
+
+    <nav>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Sitemap</a>
+    </nav>
+
+    <p>
+      <small>© <time datetime="2026">2026</time> MyBrand. All rights reserved.</small>
+    </p>
+
+  </footer>
+
+
+</body>
+</html>

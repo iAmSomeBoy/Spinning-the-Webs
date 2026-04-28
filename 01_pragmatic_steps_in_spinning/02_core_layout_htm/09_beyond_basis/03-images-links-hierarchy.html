@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  =========================================================
+  03 — IMAGES & LINKS HIERARCHY
+
+  TREE:
+  body
+   └── main
+        ├── section (img uses)
+        │    ├── div → img              ← img in block context
+        │    ├── p → img                ← img inline in text
+        │    └── a → img               ← clickable image
+        ├── section (figure)
+        │    └── figure
+        │         ├── img
+        │         └── figcaption        ← ONLY inside figure
+        ├── section (link types)
+        │    ├── p → a (external)
+        │    ├── p → a (internal)
+        │    ├── p → a (anchor)
+        │    ├── p → a (email)
+        │    ├── p → a (phone)
+        │    └── p → a (download)
+        └── section (a with children)
+             ├── a → span
+             ├── a → img
+             └── a → img + span
+  =========================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>03 — Images & Links Hierarchy</title>
+</head>
+<body>
+
+  <main>
+
+
+    <!-- SECTION: IMG USAGE PATTERNS -->
+    <section>
+      <h2>Image Placement Patterns</h2>
+
+      <!-- img inside div — block context -->
+      <!-- img is inline-block: flows with content but has dimensions -->
+      <!-- Parent of img: any block or inline-block element -->
+      <!-- img is self-closing: no closing tag -->
+      <div>
+        <img
+          src="https://via.placeholder.com/400x200"
+          alt="A placeholder banner image"
+          width="400"
+          height="200"
+          loading="lazy">
+      </div>
+
+      <!-- img inside p — inline context -->
+      <!-- img sits inline with surrounding text -->
+      <p>
+        Here is an inline icon:
+        <img
+          src="https://via.placeholder.com/24x24"
+          alt="small icon"
+          width="24"
+          height="24">
+        sitting right inside a paragraph of text.
+      </p>
+
+      <!-- img inside a — clickable image -->
+      <!-- a is inline | img is inline-block | both valid together -->
+      <a href="https://example.com" target="_blank">
+        <img
+          src="https://via.placeholder.com/200x100"
+          alt="Click to visit example.com"
+          width="200"
+          height="100">
+      </a>
+
+    </section>
+
+
+    <!-- SECTION: FIGURE & FIGCAPTION -->
+    <section>
+      <h2>Figure with Caption</h2>
+
+      <!--
+        FIGURE TREE:
+        figure              ← block element, groups media + caption
+         ├── img            ← the media
+         └── figcaption     ← ONLY valid inside figure
+      -->
+
+      <!-- figure: Parent = any block | Children = img, figcaption, video, code -->
+      <figure>
+        <img
+          src="https://via.placeholder.com/500x300"
+          alt="A chart showing monthly revenue"
+          width="500"
+          height="300">
+
+        <!-- figcaption: Parent = figure ONLY | Children = text, inline elements -->
+        <!-- can be first OR last child of figure -->
+        <figcaption>
+          Figure 1: Monthly revenue growth from January to April 2026.
+        </figcaption>
+      </figure>
+
+      <!-- figcaption as FIRST child (also valid) -->
+      <figure>
+        <figcaption>Figure 2: Team photo from the 2026 conference.</figcaption>
+        <img
+          src="https://via.placeholder.com/500x200"
+          alt="Team photo"
+          width="500"
+          height="200">
+      </figure>
+
+    </section>
+
+
+    <!-- SECTION: ALL LINK TYPES -->
+    <section>
+      <h2>Link Types</h2>
+
+      <!-- a is inline | Parent: any block or inline -->
+      <!-- Children: text, span, img — inline only -->
+
+      <!-- EXTERNAL LINK -->
+      <!-- target="_blank" opens in new tab -->
+      <!-- rel="noopener" security best practice with _blank -->
+      <p>
+        <a href="https://www.example.com" target="_blank" rel="noopener">
+          Visit External Site (opens in new tab)
+        </a>
+      </p>
+
+      <!-- INTERNAL LINK — relative path -->
+      <p>
+        <a href="/about.html">Go to About Page</a>
+      </p>
+
+      <!-- SAME PAGE ANCHOR LINK -->
+      <!-- href="#id" jumps to element with that id on same page -->
+      <p>
+        <a href="#contact-section">Jump to Contact Section below</a>
+      </p>
+
+      <!-- EMAIL LINK -->
+      <!-- opens default email client -->
+      <p>
+        <a href="mailto:hello@mybrand.com">Send us an email</a>
+      </p>
+
+      <!-- PHONE LINK -->
+      <!-- on mobile, opens dialer -->
+      <p>
+        <a href="tel:+12125551234">Call +1 (212) 555-1234</a>
+      </p>
+
+      <!-- DOWNLOAD LINK -->
+      <!-- browser downloads file instead of navigating to it -->
+      <p>
+        <a href="brochure.pdf" download>Download our PDF brochure</a>
+      </p>
+
+      <!-- LINK WITH TITLE (tooltip) -->
+      <p>
+        <a href="#" title="This appears as a tooltip on hover">
+          Hover over me
+        </a>
+      </p>
+
+    </section>
+
+
+    <!-- SECTION: WHAT a CAN CONTAIN -->
+    <section>
+      <h2>What &lt;a&gt; Can Contain</h2>
+
+      <!-- a + text (most common) -->
+      <p>
+        <a href="#">Plain text link</a>
+      </p>
+
+      <!-- a + span (styled link) -->
+      <p>
+        <a href="#">
+          <span>Link with span wrapper</span>
+        </a>
+      </p>
+
+      <!-- a + img (image link) -->
+      <a href="#">
+        <img
+          src="https://via.placeholder.com/150x50"
+          alt="Logo — click to go home"
+          width="150"
+          height="50">
+      </a>
+
+      <!-- a + img + span (icon + text link) -->
+      <a href="#">
+        <img
+          src="https://via.placeholder.com/20x20"
+          alt=""
+          width="20"
+          height="20">
+        <span>Read More</span>
+      </a>
+
+      <!--
+        WHAT a CANNOT CONTAIN:
+        ❌ <a href="#"><div>...</div></a>      block inside inline
+        ❌ <a href="#"><p>text</p></a>         block inside inline
+        ❌ <a href="#"><a href="#">...</a></a> a inside a = invalid
+        ❌ <a href="#"><section>...</section></a> block inside inline
+      -->
+
+    </section>
+
+
+    <!-- ANCHOR TARGET SECTION -->
+    <!-- id attribute makes this a jump target for anchor links above -->
+    <section id="contact-section">
+      <h2>Contact Section</h2>
+      <p>You jumped here from the anchor link above.</p>
+    </section>
+
+
+  </main>
+
+</body>
+</html>

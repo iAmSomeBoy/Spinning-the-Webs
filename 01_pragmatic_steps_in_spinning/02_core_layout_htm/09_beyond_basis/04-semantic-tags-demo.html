@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  =========================================================
+  04 — SEMANTIC TAGS DEMO
+
+  Every semantic tag shown in its correct context with
+  parent-child annotations.
+
+  TAGS COVERED:
+  time, address, mark, abbr, cite, blockquote, q,
+  code, pre, details, summary, strong, em, small,
+  sub, sup, hr, b, i
+  =========================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>04 — Semantic Tags Demo</title>
+</head>
+<body>
+
+  <main>
+
+
+    <!-- TIME -->
+    <!-- inline | Parent: any block or inline | Children: text only -->
+    <section>
+      <h2>time — Dates and Times</h2>
+
+      <p>
+        This article was published on
+        <!-- datetime = machine-readable | text = human-readable -->
+        <time datetime="2026-04-28">April 28, 2026</time>.
+      </p>
+
+      <p>
+        The event starts at
+        <time datetime="2026-05-01T18:30">6:30 PM on May 1st</time>.
+      </p>
+
+      <p>
+        The deadline is in
+        <time datetime="P30D">30 days</time>.
+      </p>
+    </section>
+
+    <hr>
+    <!-- HR — thematic break, block, self-closing -->
+    <!-- Parent: any block | Children: nothing -->
+
+
+    <!-- ADDRESS -->
+    <!-- block | Parent: body, article, footer, section | Children: p, a, br, inline -->
+    <section>
+      <h2>address — Contact Information</h2>
+
+      <address>
+        <p>MyBrand Headquarters</p>
+        <p>123 Web Street, Suite 400</p>
+        <p>New York, NY 10001</p>
+        <a href="mailto:contact@mybrand.com">contact@mybrand.com</a>
+        <br>
+        <a href="tel:+12125551234">+1 (212) 555-1234</a>
+      </address>
+    </section>
+
+    <hr>
+
+
+    <!-- MARK -->
+    <!-- inline | Parent: any | Children: text only -->
+    <section>
+      <h2>mark — Highlighted Text</h2>
+
+      <p>
+        Search results for
+        <!-- mark highlights text like a yellow marker -->
+        <mark>HTML semantic tags</mark>
+        returned 24 results.
+      </p>
+
+      <p>
+        The most <mark>important concept</mark> to remember is proper nesting.
+      </p>
+    </section>
+
+    <hr>
+
+
+    <!-- ABBR -->
+    <!-- inline | Parent: any | Children: text only -->
+    <section>
+      <h2>abbr — Abbreviations</h2>
+
+      <p>
+        <!-- title attribute shows full form on hover -->
+        <abbr title="HyperText Markup Language">HTML</abbr>
+        and
+        <abbr title="Cascading Style Sheets">CSS</abbr>
+        are the two core languages of the web.
+      </p>
+
+      <p>
+        <abbr title="Document Object Model">DOM</abbr>
+        is the tree structure browsers build from HTML.
+      </p>
+    </section>
+
+    <hr>
+
+
+    <!-- CITE, BLOCKQUOTE, Q -->
+    <section>
+      <h2>cite, blockquote, q — Quotations</h2>
+
+      <!-- BLOCKQUOTE — long external quote, block element -->
+      <!-- Parent: any block | Children: p, block and inline elements -->
+      <blockquote cite="https://www.w3.org">
+        <p>
+          The Web is designed to be universal: to work for everyone,
+          regardless of their hardware, software, language, or ability.
+        </p>
+        <!-- CITE — attribution for the quote, inline -->
+        <!-- Parent: any block or inline | Children: text only -->
+        <cite>— W3C Mission Statement</cite>
+      </blockquote>
+
+      <!-- Q — short inline quote, inline element -->
+      <!-- adds quotation marks automatically -->
+      <!-- Parent: any | Children: text only -->
+      <p>
+        Tim Berners-Lee once said
+        <q>The web is more a social creation than a technical one.</q>
+      </p>
+
+      <!-- cite for book/work titles -->
+      <p>
+        I recommend reading
+        <cite>HTML and CSS: Design and Build Websites</cite>
+        by Jon Duckett.
+      </p>
+    </section>
+
+    <hr>
+
+
+    <!-- CODE & PRE -->
+    <section>
+      <h2>code & pre — Code Display</h2>
+
+      <!-- CODE — inline code, inline element -->
+      <!-- Parent: any | Children: text only -->
+      <p>
+        Use the
+        <code>display: flex</code>
+        property to activate flexbox on a container.
+      </p>
+
+      <p>
+        The
+        <code>&lt;section&gt;</code>
+        tag groups themed content on a page.
+      </p>
+
+      <!-- PRE — preformatted text, block element -->
+      <!-- preserves spaces and line breaks exactly -->
+      <!-- Parent: any block | Children: text, code -->
+      <pre><code>
+&lt;!-- Example HTML structure --&gt;
+&lt;main&gt;
+  &lt;section&gt;
+    &lt;h2&gt;Title&lt;/h2&gt;
+    &lt;p&gt;Content here&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/main&gt;
+      </code></pre>
+
+    </section>
+
+    <hr>
+
+
+    <!-- DETAILS & SUMMARY -->
+    <section>
+      <h2>details & summary — Expandable Content</h2>
+
+      <!--
+        TREE:
+        details                ← collapsible container, block
+         ├── summary           ← always visible toggle, FIRST child, ONLY inside details
+         └── (any content)     ← hidden until summary is clicked
+      -->
+
+      <!-- details: Parent = any block | Children = summary (first), then anything -->
+      <!-- summary: Parent = details ONLY | Children = text, inline elements -->
+      <details>
+        <summary>What is the DOM?</summary>
+        <p>
+          The <abbr title="Document Object Model">DOM</abbr> is a
+          tree-like representation of an HTML document. Each HTML tag
+          becomes a node in the tree, with parent-child relationships
+          matching the nesting of the HTML.
+        </p>
+      </details>
+
+      <details>
+        <summary>What is the difference between div and section?</summary>
+        <p>
+          A <code>&lt;div&gt;</code> is a generic container with no semantic meaning.
+          A <code>&lt;section&gt;</code> represents a themed group of content
+          and should always have a heading inside it.
+        </p>
+      </details>
+
+      <details open>
+        <!-- 'open' attribute makes it expanded by default -->
+        <summary>This one starts open</summary>
+        <p>The 'open' attribute on details means it starts expanded.</p>
+      </details>
+
+    </section>
+
+    <hr>
+
+
+    <!-- STRONG, EM, B, I, SMALL, SUB, SUP -->
+    <section>
+      <h2>Text-Level Semantic Tags</h2>
+
+      <!-- STRONG vs B -->
+      <p>
+        <!-- strong: semantic importance -->
+        <strong>Warning: This action cannot be undone.</strong>
+      </p>
+      <p>
+        <!-- b: visual bold only, no meaning -->
+        <b>Bold text with no special importance.</b>
+      </p>
+
+      <!-- EM vs I -->
+      <p>
+        <!-- em: stressed emphasis -->
+        You <em>must</em> close all tags properly.
+      </p>
+      <p>
+        <!-- i: visual italic, technical terms, foreign words -->
+        The term <i>semantics</i> comes from Greek.
+      </p>
+
+      <!-- SMALL -->
+      <p>
+        Full price: $99.00
+        <!-- small: fine print, disclaimers, secondary info -->
+        <small>(Taxes and fees may apply)</small>
+      </p>
+
+      <!-- SUB and SUP -->
+      <p>
+        Chemical formula for water: H<sub>2</sub>O
+      </p>
+      <p>
+        Einstein's equation: E = mc<sup>2</sup>
+      </p>
+      <p>
+        Footnote reference<sup>1</sup>
+      </p>
+
+    </section>
+
+
+  </main>
+
+</body>
+</html>

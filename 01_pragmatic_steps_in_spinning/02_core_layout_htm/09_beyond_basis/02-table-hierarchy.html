@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  =========================================================
+  02 — TABLE HIERARCHY
+  Full parent-child tree of all table-related tags.
+
+  TREE:
+  body
+   └── main
+        ├── section (simple table)
+        │    └── table
+        │         ├── caption         ← FIRST child, ONLY inside table
+        │         ├── thead
+        │         │    └── tr
+        │         │         ├── th    ← header cell
+        │         │         └── th
+        │         ├── tbody
+        │         │    ├── tr
+        │         │    │    ├── td    ← data cell
+        │         │    │    └── td
+        │         │    └── tr → td, td
+        │         └── tfoot
+        │              └── tr
+        │                   └── td colspan="2"
+        └── section (spanning table)
+             └── table with colspan and rowspan
+  =========================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>02 — Table Hierarchy</title>
+</head>
+<body>
+
+  <main>
+
+
+    <!-- SIMPLE TABLE -->
+    <section>
+      <h2>Simple Data Table</h2>
+
+      <!-- TABLE — root container -->
+      <!-- Parent: any block element | Children: caption, thead, tbody, tfoot ONLY -->
+      <table>
+
+        <!-- CAPTION — table title, must be FIRST child -->
+        <!-- Parent: table ONLY | Children: text, inline elements -->
+        <caption>Student Grades — Spring 2026</caption>
+
+        <!-- THEAD — header rows group -->
+        <!-- Parent: table ONLY | Children: tr ONLY -->
+        <thead>
+
+          <!-- TR — a table row -->
+          <!-- Parent: thead, tbody, tfoot ONLY | Children: th or td ONLY -->
+          <tr>
+
+            <!-- TH — header cell (bold, centered by default) -->
+            <!-- Parent: tr ONLY | Children: text, inline, block content -->
+            <th>Student Name</th>
+            <th>Subject</th>
+            <th>Grade</th>
+            <th>Score</th>
+
+          </tr>
+
+        </thead>
+        <!-- end thead -->
+
+
+        <!-- TBODY — main data rows -->
+        <!-- Parent: table ONLY | Children: tr ONLY -->
+        <tbody>
+
+          <tr>
+            <!-- TD — data cell -->
+            <!-- Parent: tr ONLY | Children: text, inline, block, even nested table -->
+            <td>Alice Johnson</td>
+            <td>Mathematics</td>
+            <td>A</td>
+            <td>96</td>
+          </tr>
+
+          <tr>
+            <td>Bob Smith</td>
+            <td>Science</td>
+            <td>B+</td>
+            <td>88</td>
+          </tr>
+
+          <tr>
+            <td>Carol White</td>
+            <td>English</td>
+            <td>A-</td>
+            <td>92</td>
+          </tr>
+
+          <tr>
+            <td>David Lee</td>
+            <td>History</td>
+            <td>B</td>
+            <td>84</td>
+          </tr>
+
+        </tbody>
+        <!-- end tbody -->
+
+
+        <!-- TFOOT — footer/summary rows -->
+        <!-- Parent: table ONLY | Children: tr ONLY -->
+        <tfoot>
+
+          <tr>
+            <!-- colspan: this cell spans 2 columns -->
+            <td colspan="2">Class Average</td>
+            <td>B+</td>
+            <td>90</td>
+          </tr>
+
+        </tfoot>
+        <!-- end tfoot -->
+
+      </table>
+    </section>
+
+
+    <!-- TABLE WITH COLSPAN AND ROWSPAN -->
+    <section>
+      <h2>Table with Spanning Cells</h2>
+
+      <table>
+        <caption>Weekly Schedule</caption>
+
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr>
+            <td>9:00 AM</td>
+            <!-- colspan="2": this cell spans Monday AND Tuesday columns -->
+            <td colspan="2">Team Meeting (2 days)</td>
+            <td>Design Review</td>
+          </tr>
+
+          <tr>
+            <!-- rowspan="2": this cell spans this row AND the next row -->
+            <td rowspan="2">10:00 AM</td>
+            <td>Development</td>
+            <td>Testing</td>
+            <td>Deployment</td>
+          </tr>
+
+          <tr>
+            <!-- no first td here because rowspan above covers it -->
+            <td>Code Review</td>
+            <td>Bug Fixes</td>
+            <td>Documentation</td>
+          </tr>
+
+          <tr>
+            <td>2:00 PM</td>
+            <!-- colspan="3": spans all 3 day columns -->
+            <td colspan="3">All-Hands Company Meeting</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+    </section>
+
+
+    <!-- TD CAN CONTAIN BLOCK ELEMENTS TOO -->
+    <section>
+      <h2>TD Containing Rich Content</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Description</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Authentication</td>
+
+            <!-- td can contain block elements like p and ul -->
+            <td>
+              <p>Secure login system with multiple providers.</p>
+            </td>
+
+            <td>
+              <!-- td can even contain a list -->
+              <ul>
+                <li>Email + Password</li>
+                <li>Google OAuth</li>
+                <li>GitHub OAuth</li>
+              </ul>
+            </td>
+
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+
+  </main>
+
+</body>
+</html>

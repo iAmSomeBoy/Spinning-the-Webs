@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  =========================================================
+  06 — SPACING DEMO
+  &nbsp; | <br> | <hr> | margin | padding
+
+  Shows every HTML spacing tool in action.
+  =========================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>06 — Spacing Demo</title>
+</head>
+<body>
+
+  <main>
+
+
+    <!-- NBSP — HORIZONTAL SPACING -->
+    <section>
+      <h2>Horizontal Space with &amp;nbsp;</h2>
+
+      <!-- &nbsp; adds non-breaking space character inline -->
+      <!-- each &nbsp; = one space unit -->
+
+      <p>No extra space: <span>Left</span><span>Right</span></p>
+
+      <p>One &nbsp;: <span>Left</span> &nbsp; <span>Right</span></p>
+
+      <p>Three &nbsp;: <span>Left</span> &nbsp;&nbsp;&nbsp; <span>Right</span></p>
+
+      <p>Ten &nbsp;: <span>Left</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span>Right</span></p>
+
+      <!-- &nbsp; in text content -->
+      <p>First Name:&nbsp;&nbsp;&nbsp; John</p>
+      <p>Last Name:&nbsp;&nbsp;&nbsp;&nbsp; Doe</p>
+      <p>Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; john@example.com</p>
+    </section>
+
+    <hr>
+
+
+    <!-- BR — VERTICAL SPACING (line breaks) -->
+    <section>
+      <h2>Vertical Space with &lt;br&gt;</h2>
+
+      <!-- br forces a new line — self-closing -->
+      <!-- best used for: addresses, poems, text that needs intentional breaks -->
+
+      <!-- Address format using br -->
+      <p>
+        MyBrand Inc.<br>
+        123 Web Street<br>
+        Suite 400<br>
+        New York, NY 10001<br>
+        United States
+      </p>
+
+      <!-- multiple br for larger vertical gaps -->
+      <p>Paragraph one directly above.</p>
+      <br>
+      <p>One line gap below paragraph one.</p>
+      <br>
+      <br>
+      <p>Two line gap below previous.</p>
+      <br>
+      <br>
+      <br>
+      <p>Three line gap below previous.</p>
+
+    </section>
+
+    <hr>
+    <!-- HR — thematic divider, creates visual + vertical space -->
+    <!-- Parent: any block | Self-closing -->
+
+
+    <!-- HR AS DIVIDER -->
+    <section>
+      <h2>Thematic Break with &lt;hr&gt;</h2>
+
+      <p>This content belongs to the first topic.</p>
+      <p>More first topic content here.</p>
+
+      <!-- hr visually separates two themes -->
+      <hr>
+
+      <p>This content belongs to the second topic.</p>
+      <p>More second topic content here.</p>
+
+      <hr>
+
+      <p>Third topic begins here.</p>
+    </section>
+
+    <hr>
+
+
+    <!-- CSS MARGIN & PADDING -->
+    <section>
+      <h2>CSS Margin &amp; Padding (inline style hints)</h2>
+
+      <!--
+        margin  = space OUTSIDE the element (pushes other elements away)
+        padding = space INSIDE the element (pushes content from edges)
+      -->
+
+      <!-- MARGIN examples using inline style attribute -->
+      <div style="margin-top: 40px; background: #eee; padding: 10px;">
+        I have 40px margin-top (space above me)
+      </div>
+
+      <div style="margin-bottom: 40px; background: #ddd; padding: 10px;">
+        I have 40px margin-bottom (space below me)
+      </div>
+
+      <div style="margin-left: 80px; background: #ccc; padding: 10px;">
+        I have 80px margin-left (pushed right)
+      </div>
+
+      <div style="margin: 30px; background: #bbb; padding: 10px;">
+        I have 30px margin on ALL sides
+      </div>
+
+      <!-- PADDING examples -->
+      <div style="padding: 40px; background: #aaa;">
+        I have 40px padding — content is pushed away from all edges
+      </div>
+
+      <div style="padding-top: 30px; padding-left: 60px; background: #999; color: white;">
+        30px padding-top and 60px padding-left only
+      </div>
+
+      <!-- MARGIN vs PADDING side by side -->
+      <div style="background: lightblue; padding: 5px;">
+        Outer container
+
+        <div style="margin: 20px; background: lightyellow; padding: 5px;">
+          margin: 20px — pushes me away from outer container
+        </div>
+
+        <div style="padding: 20px; background: lightgreen;">
+          padding: 20px — my content is pushed away from my own edges
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+</body>
+</html>

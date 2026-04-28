@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  =========================================================
+  01 — FORM HIERARCHY
+  Full parent-child tree of all form-related tags.
+
+  TREE:
+  body
+   └── main
+        └── section
+             └── form
+                  ├── fieldset (Account)
+                  │    ├── legend          ← ONLY inside fieldset
+                  │    ├── label → input   ← text
+                  │    ├── label → input   ← email
+                  │    └── label → input   ← password
+                  ├── fieldset (Preferences)
+                  │    ├── legend
+                  │    ├── label → input   ← checkbox
+                  │    ├── label → input   ← radio
+                  │    ├── label → input   ← radio
+                  │    └── label → select
+                  │              └── optgroup
+                  │                   └── option
+                  ├── label → textarea
+                  ├── button (submit)
+                  └── button (reset)
+  =========================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>01 — Form Hierarchy</title>
+</head>
+<body>
+
+  <main>
+    <section>
+      <h1>Registration Form</h1>
+
+      <!-- FORM — root form container -->
+      <!-- Parent: section | Children: fieldset, label, input, textarea, select, button, div -->
+      <!-- action: where data goes | method: GET or POST -->
+      <form action="/register" method="POST">
+
+
+        <!-- FIELDSET 1 — groups related inputs -->
+        <!-- Parent: form | Children: legend, label, input, div, textarea, select -->
+        <fieldset>
+
+          <!-- LEGEND — title of fieldset, ONLY valid inside fieldset -->
+          <!-- Parent: fieldset ONLY | Children: text, inline elements -->
+          <legend>Account Details</legend>
+
+          <!-- LABEL method 1: wraps the input -->
+          <!-- label is inline | Parent: fieldset, form, div -->
+          <!-- label Children: text, input, span -->
+          <label>
+            Full Name
+            <!-- INPUT — self-closing, no closing tag -->
+            <!-- Parent: label, fieldset, form, div -->
+            <!-- Children: nothing -->
+            <input type="text" name="fullname" placeholder="John Doe" required>
+          </label>
+
+          <!-- LABEL method 2: 'for' links to input 'id' -->
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="john@example.com"
+            required>
+
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Min 8 characters"
+            required>
+
+          <label for="dob">Date of Birth</label>
+          <input type="date" id="dob" name="dob">
+
+        </fieldset>
+        <!-- end fieldset 1 -->
+
+
+        <!-- FIELDSET 2 — preferences group -->
+        <fieldset>
+
+          <legend>Preferences</legend>
+
+          <!-- CHECKBOX input -->
+          <!-- label wraps both text and input -->
+          <label>
+            <input type="checkbox" name="newsletter" value="yes">
+            Subscribe to newsletter
+          </label>
+
+          <!-- RADIO inputs — same 'name' groups them -->
+          <!-- only one radio with same name can be selected -->
+          <label>
+            <input type="radio" name="gender" value="male">
+            Male
+          </label>
+
+          <label>
+            <input type="radio" name="gender" value="female">
+            Female
+          </label>
+
+          <label>
+            <input type="radio" name="gender" value="other">
+            Other
+          </label>
+
+          <!-- SELECT — dropdown -->
+          <!-- Parent: form, fieldset, div | Children: option, optgroup ONLY -->
+          <label for="country">Country</label>
+          <select id="country" name="country">
+
+            <!-- default empty option -->
+            <option value="">-- Select Country --</option>
+
+            <!-- OPTGROUP — groups options with a label -->
+            <!-- Parent: select ONLY | Children: option ONLY -->
+            <optgroup label="North America">
+              <!-- OPTION — each choice -->
+              <!-- Parent: select or optgroup ONLY | Children: text only -->
+              <option value="us">United States</option>
+              <option value="ca">Canada</option>
+              <option value="mx">Mexico</option>
+            </optgroup>
+
+            <optgroup label="Europe">
+              <option value="uk">United Kingdom</option>
+              <option value="de">Germany</option>
+              <option value="fr">France</option>
+            </optgroup>
+
+          </select>
+
+        </fieldset>
+        <!-- end fieldset 2 -->
+
+
+        <!-- TEXTAREA — multi-line text input -->
+        <!-- Parent: form, fieldset, div | Children: text (default value) only -->
+        <!-- Unlike input, textarea HAS a closing tag -->
+        <label for="bio">Short Bio</label>
+        <textarea
+          id="bio"
+          name="bio"
+          rows="5"
+          cols="40"
+          placeholder="Tell us about yourself...">
+        </textarea>
+
+        <!-- FILE INPUT -->
+        <label for="avatar">Profile Picture</label>
+        <input type="file" id="avatar" name="avatar" accept="image/*">
+
+        <!-- HIDDEN INPUT — not visible, carries data silently -->
+        <input type="hidden" name="source" value="registration-page">
+
+
+        <!-- BUTTONS -->
+        <!-- Parent: form, div, any block | Children: text, span, img -->
+        <!-- type="submit" sends the form -->
+        <button type="submit">Create Account</button>
+
+        <!-- type="reset" clears all inputs -->
+        <button type="reset">Clear Form</button>
+
+        <!-- type="button" does nothing without JS -->
+        <button type="button">Save Draft</button>
+
+
+      </form>
+      <!-- end form -->
+
+    </section>
+  </main>
+
+</body>
+</html>

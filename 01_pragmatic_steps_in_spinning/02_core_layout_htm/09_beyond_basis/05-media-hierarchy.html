@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  =========================================================
+  05 — MEDIA HIERARCHY (video, audio, iframe)
+
+  TREE:
+  body
+   └── main
+        ├── section (video)
+        │    ├── video
+        │    │    ├── source    ← ONLY inside video/audio
+        │    │    └── source
+        │    └── figure
+        │         ├── video → source
+        │         └── figcaption
+        ├── section (audio)
+        │    └── audio
+        │         ├── source
+        │         └── source
+        └── section (iframe)
+             └── iframe
+  =========================================================
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>05 — Media Hierarchy</title>
+</head>
+<body>
+
+  <main>
+
+
+    <!-- VIDEO SECTION -->
+    <section>
+      <h2>Video Embedding</h2>
+
+      <!-- BASIC VIDEO -->
+      <!-- video: block-level | Parent: any block | Children: source, track, fallback text -->
+      <video
+        width="640"
+        height="360"
+        controls>
+        <!--
+          SOURCE — specifies the media file
+          Self-closing, no closing tag
+          Parent: video or audio ONLY
+          Children: nothing
+          Browser picks first format it supports
+        -->
+        <source src="video.mp4"  type="video/mp4">
+        <source src="video.webm" type="video/webm">
+        <source src="video.ogg"  type="video/ogg">
+
+        <!-- Fallback text shown if browser cannot play video -->
+        Your browser does not support the video tag.
+        <a href="video.mp4">Download the video instead.</a>
+
+      </video>
+
+      <!-- VIDEO WITH ALL ATTRIBUTES -->
+      <video
+        width="800"
+        height="450"
+        controls
+        autoplay
+        muted
+        loop
+        poster="thumbnail.jpg"
+        preload="metadata">
+        <source src="hero-video.mp4" type="video/mp4">
+        <source src="hero-video.webm" type="video/webm">
+      </video>
+
+      <!-- FIGURE + VIDEO — best practice when caption needed -->
+      <!--
+        figure: block | Parent: any block | Children: video, img, figcaption
+        figcaption: ONLY inside figure | Children: text, inline elements
+      -->
+      <figure>
+        <video width="600" height="338" controls>
+          <source src="demo.mp4" type="video/mp4">
+        </video>
+        <figcaption>
+          Video 1: Product demo walkthrough — April 2026.
+        </figcaption>
+      </figure>
+
+    </section>
+
+
+    <!-- AUDIO SECTION -->
+    <section>
+      <h2>Audio Embedding</h2>
+
+      <!-- BASIC AUDIO -->
+      <!-- audio: inline-block | Parent: any block | Children: source, track, fallback -->
+      <audio controls>
+        <!--
+          SOURCE inside audio — same rules as inside video
+          Browser picks first format it supports
+        -->
+        <source src="audio.mp3" type="audio/mpeg">
+        <source src="audio.ogg" type="audio/ogg">
+        <source src="audio.wav" type="audio/wav">
+
+        <!-- fallback for unsupported browsers -->
+        Your browser does not support the audio tag.
+        <a href="audio.mp3">Download audio instead.</a>
+
+      </audio>
+
+      <!-- AUDIO WITH ALL ATTRIBUTES -->
+      <audio
+        controls
+        autoplay
+        muted
+        loop
+        preload="none">
+        <source src="background-music.mp3" type="audio/mpeg">
+      </audio>
+
+      <!-- AUDIO inside FIGURE with caption -->
+      <figure>
+        <audio controls>
+          <source src="podcast-ep1.mp3" type="audio/mpeg">
+        </audio>
+        <figcaption>
+          Episode 1: Introduction to HTML — 32 minutes
+        </figcaption>
+      </figure>
+
+    </section>
+
+
+    <!-- IFRAME SECTION -->
+    <section>
+      <h2>iFrame Embedding</h2>
+
+      <!-- YOUTUBE VIDEO EMBED -->
+      <!-- iframe: block-level | Parent: any block | Children: fallback text only -->
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        width="560"
+        height="315"
+        title="YouTube video — HTML tutorial"
+        allowfullscreen
+        loading="lazy">
+        <!-- fallback content if iframe fails -->
+        Your browser does not support iframes.
+        <a href="https://youtube.com">Watch on YouTube</a>
+      </iframe>
+
+      <!-- GOOGLE MAPS EMBED -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!..."
+        width="600"
+        height="450"
+        title="Office location map"
+        loading="lazy"
+        style="border:0">
+      </iframe>
+
+      <!-- ANOTHER HTML PAGE EMBED -->
+      <iframe
+        src="other-page.html"
+        width="100%"
+        height="500"
+        title="Embedded page"
+        sandbox="allow-scripts">
+        <!-- sandbox restricts what iframe can do -->
+      </iframe>
+
+    </section>
+
+
+  </main>
+
+</body>
+</html>
